@@ -18,12 +18,16 @@ const GlobalStyle = createGlobalStyle`
 
     body {
       background-color: ${colors.gray};
+      overflow: hidden;
+
+      ::-webkit-scrollbar {
+        width: 0;
     }
 
     .container {
       max-width: 1024px;
       width: 100%;
-      margin: 100px auto 200px;
+      margin: 40px auto 200px;
   }
   `
 
