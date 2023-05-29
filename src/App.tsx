@@ -1,7 +1,7 @@
 import Header from './components/Header'
 import Input from './components/Form'
 import GlobalStyle from './styles'
-import Contact from './components/Contact'
+import ContactList from './components/ContactList'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="container">
         <Header />
         <Input />
-        <Contact />
+        <ContactList />
       </div>
     </>
   )

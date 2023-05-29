@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import variables from '../../styles/variables'
 
 export const TableContainer = styled.div`
   height: 68vh;
@@ -12,7 +12,7 @@ export const TableContainer = styled.div`
 export const TableStyles = styled.table`
   margin-top: 0px;
   width: 100%;
-  color: ${colors.black};
+  color: ${variables.black};
   text-align: center;
 `
 
@@ -20,10 +20,10 @@ export const TableHeadStyles = styled.thead`
   font-size: 22px;
   position: sticky;
   top: 0;
-  background-color: ${colors.gray};
+  background-color: ${variables.gray};
 
   th {
-    border-bottom: 2px solid ${colors.black};
+    border-bottom: 2px solid ${variables.black};
     font-size: 24px;
     padding: 40px 16px 16px;
     font-weight: bold;
@@ -36,6 +36,6 @@ export const TableBodyStyles = styled.tbody`
   td {
     padding: 16px 0;
     font-size: 18px;
-    border-bottom: 1px solid ${colors.darkGray};
+    border-bottom: 1px solid ${variables.darkGray};
   }
 `

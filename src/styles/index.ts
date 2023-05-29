@@ -1,13 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const colors = {
-  black: '#000',
-  white: '#fff',
-  gray: '#E7E7E7',
-  darkGray: '#a2a2a2',
-  red: '#FF0000',
-  blue: '#0000FF'
-}
+import variables from './variables'
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -17,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Roboto, sans-serif;
 
     body {
-      background-color: ${colors.gray};
+      background-color: ${variables.gray};
       overflow: hidden;
 
       ::-webkit-scrollbar {

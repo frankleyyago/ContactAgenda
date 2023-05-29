@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import variables from '../../styles/variables'
 
 export const HeaderStyles = styled.div`
   font-size: 20px;
   font-weight: bold;
-  color: ${colors.black};
+  color: ${variables.black};
   display: flex;
   margin-bottom: 40px;
   align-items: center;
