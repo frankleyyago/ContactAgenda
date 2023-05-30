@@ -1,4 +1,7 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { remove } from '../../store/reducers/contact'
+
 import Contact from '../Contact'
 import {
   ButtonRemoveStyles,
@@ -9,9 +12,13 @@ import {
   TableStyles
 } from './styles'
 import { RootReducer } from '../../store'
+import ContactClass from '../../models/Contact'
+
+type Props = ContactClass
 
 const ContactList = () => {
-  const { contacts } = useSelector((state: RootReducer) => state)
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.contacts)
   return (
     <>
       <TableContainer>
@@ -25,12 +32,17 @@ const ContactList = () => {
             </tr>
           </TableHeadStyles>
           <TableBodyStyles>
-            {contacts.map((c) => (
+            {items.map((c) => (
               <tr key={c.name}>
-                <Contact name={c.name} email={c.email} phone={c.phone} />
+                <Contact
+                  name={c.name}
+                  email={c.email}
+                  phone={c.phone}
+                  id={c.id}
+                />
                 <td>
                   <ButtonEditStyles />
-                  <ButtonRemoveStyles />
+                  <ButtonRemoveStyles onClick={() => dispatch(remove(c.id))} />
                 </td>
               </tr>
             ))}
