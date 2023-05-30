@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux'
 import Contact from '../Contact'
 import {
+  ButtonRemoveStyles,
+  ButtonEditStyles,
   TableBodyStyles,
   TableContainer,
   TableHeadStyles,
@@ -19,12 +21,17 @@ const ContactList = () => {
               <th>Nome</th>
               <th>Email</th>
               <th>Telefone</th>
+              <th></th>
             </tr>
           </TableHeadStyles>
           <TableBodyStyles>
             {contacts.map((c) => (
               <tr key={c.name}>
                 <Contact name={c.name} email={c.email} phone={c.phone} />
+                <td>
+                  <ButtonEditStyles />
+                  <ButtonRemoveStyles />
+                </td>
               </tr>
             ))}
           </TableBodyStyles>

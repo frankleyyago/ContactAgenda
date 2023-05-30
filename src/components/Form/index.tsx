@@ -1,17 +1,17 @@
 import {
-  ButtonStyled,
+  ButtonStyles,
   EmailInputStyles,
   FormStyles,
   NameInputStyles,
-  PhoneInputStyled
+  PhoneInputStyles
 } from './styles'
 
 const Form = () => (
   <FormStyles>
     <NameInputStyles type="text" id="name" placeholder="Nome completo" />
     <EmailInputStyles type="email" id="email" placeholder="Email" />
-    <PhoneInputStyled type="number" id="phone" placeholder="Número" />
-    <ButtonStyled>Add+</ButtonStyled>
+    <PhoneInputStyles type="number" id="phone" placeholder="Número" />
+    <ButtonStyles>Add+</ButtonStyles>
   </FormStyles>
 )
 

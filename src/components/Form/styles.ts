@@ -24,11 +24,11 @@ export const EmailInputStyles = styled(InputStyles)`
   width: 30%;
 `
 
-export const PhoneInputStyled = styled(InputStyles)`
+export const PhoneInputStyles = styled(InputStyles)`
   width: 20%;
 `
 
-export const ButtonStyled = styled.button`
+export const ButtonStyles = styled.button`
   font-size: 22px;
   background-color: ${variables.blue};
   color: ${variables.white};
