@@ -1,18 +1,12 @@
-import {
-  ButtonStyles,
-  EmailInputStyles,
-  FormStyles,
-  NameInputStyles,
-  PhoneInputStyles
-} from './styles'
+import * as S from './styles'
 
 const Form = () => (
-  <FormStyles>
-    <NameInputStyles type="text" id="name" placeholder="Nome completo" />
-    <EmailInputStyles type="email" id="email" placeholder="Email" />
-    <PhoneInputStyles type="number" id="phone" placeholder="Número" />
-    <ButtonStyles>Add+</ButtonStyles>
-  </FormStyles>
+  <S.FormStyles>
+    <S.NameInputStyles type="text" id="name" placeholder="Nome completo" />
+    <S.EmailInputStyles type="email" id="email" placeholder="Email" />
+    <S.PhoneInputStyles type="number" id="phone" placeholder="Número" />
+    <S.ButtonStyles>Add+</S.ButtonStyles>
+  </S.FormStyles>
 )
 
 export default Form
