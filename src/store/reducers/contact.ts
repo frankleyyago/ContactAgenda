@@ -1,15 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Contact from '../../models/Contact'
 
-const contactSlice = createSlice({
+type ContactsState = {
+  items: Contact[]
+}
+
+const initialState: ContactsState = {
+  items: [
+    {
+      id: 1,
+      name: 'Yago Frankley',
+      email: 'frankleyyago@email.com',
+      phone: 31923420192
+    },
+    {
+      id: 2,
+      name: 'Joao Silva',
+      email: 'silvajoao@email.com',
+      phone: 31923420192
+    },
+    {
+      id: 3,
+      name: 'Maria Santos',
+      email: 'mariasantos@email.com',
+      phone: 31923420192
+    }
+  ]
+}
+
+const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: {
-    items: [
-      new Contact('Yago Frankley', 'frankleyyago@email.com', 31923420192, 1),
-      new Contact('Maria Santos', 'silvamaria@email.com', 31994924932, 2),
-      new Contact('Jõao Damasceno', 'damascenojoao@email.com', 31993280922, 3)
-    ]
-  },
+  initialState,
   reducers: {
     remove: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter(
@@ -19,6 +40,6 @@ const contactSlice = createSlice({
   }
 })
 
-export const { remove } = contactSlice.actions
+export const { remove } = contactsSlice.actions
 
-export default contactSlice.reducer
+export default contactsSlice.reducer

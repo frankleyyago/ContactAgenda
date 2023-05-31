@@ -9,15 +9,19 @@ import {
   TableBodyStyles,
   TableContainer,
   TableHeadStyles,
-  TableStyles
+  TableStyles,
+  ButtonSavelStyles,
+  ButtonCancelStyles
 } from './styles'
 import { RootReducer } from '../../store'
 import ContactClass from '../../models/Contact'
+import { useState } from 'react'
 
 type Props = ContactClass
 
 const ContactList = () => {
   const dispatch = useDispatch()
+  const [isEditing, setIsEditing] = useState(false)
   const { items } = useSelector((state: RootReducer) => state.contacts)
   return (
     <>
@@ -41,8 +45,19 @@ const ContactList = () => {
                   id={c.id}
                 />
                 <td>
-                  <ButtonEditStyles />
-                  <ButtonRemoveStyles onClick={() => dispatch(remove(c.id))} />
+                  {isEditing ? (
+                    <>
+                      <ButtonSavelStyles />
+                      <ButtonCancelStyles onClick={() => setIsEditing(false)} />
+                    </>
+                  ) : (
+                    <>
+                      <ButtonEditStyles onClick={() => setIsEditing(true)} />
+                      <ButtonRemoveStyles
+                        onClick={() => dispatch(remove(c.id))}
+                      />
+                    </>
+                  )}
                 </td>
               </tr>
             ))}

@@ -11,6 +11,6 @@ export const HeaderStyles = styled.div`
 
   img {
     height: 40px;
-    margin-right: 16px;
+    margin-right: 24px;
   }
 `

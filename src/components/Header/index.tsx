@@ -1,6 +1,6 @@
 import { HeaderStyles } from './styles'
 
-import logo from '../../assets/image/logo.png'
+import logo from '../../assets/image/logo.svg'
 
 const Header = () => (
   <HeaderStyles>
