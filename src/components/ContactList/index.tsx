@@ -13,9 +13,9 @@ const ContactList = () => {
         <S.TableStyles cellSpacing="0">
           <S.TableHeadStyles>
             <tr>
-              <th>Nome</th>
+              <th>Name</th>
               <th>Email</th>
-              <th>Telefone</th>
+              <th>Phone</th>
               <th></th>
             </tr>
           </S.TableHeadStyles>
