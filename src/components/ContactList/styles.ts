@@ -34,7 +34,6 @@ export const TableBodyStyles = styled.tbody`
   justify-content: center;
 
   td {
-    padding: 16px 0;
     font-size: 18px;
     border-bottom: 1px solid ${variables.darkGray};
   }

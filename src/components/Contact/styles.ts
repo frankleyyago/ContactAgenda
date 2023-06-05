@@ -5,6 +5,23 @@ import remove from '../../assets/image/remove.svg'
 import save from '../../assets/image/save.svg'
 import cancel from '../../assets/image/cancel.svg'
 
+export const ContactInfoStyles = styled.textarea`
+  background-color: transparent;
+  border: none;
+  resize: none;
+  font-size: 18px;
+  width: 95%;
+  height: 44%;
+  text-align: center;
+`
+
+export const ContactInfoWrapper = styled.div`
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 export const ButtonEditStyles = styled.button`
   background-image: url(${edit});
   height: 20px;

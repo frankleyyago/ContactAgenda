@@ -17,9 +17,21 @@ const Contact = ({ name, email, phone, id }: Props) => {
   const [isEditing, setIsEditing] = useState(false)
   return (
     <>
-      <td>{name}</td>
-      <td>{email}</td>
-      <td>{phone}</td>
+      <td>
+        <S.ContactInfoWrapper>
+          <S.ContactInfoStyles>{name}</S.ContactInfoStyles>
+        </S.ContactInfoWrapper>
+      </td>
+      <td>
+        <S.ContactInfoWrapper>
+          <S.ContactInfoStyles>{email}</S.ContactInfoStyles>
+        </S.ContactInfoWrapper>
+      </td>
+      <td>
+        <S.ContactInfoWrapper>
+          <S.ContactInfoStyles>{phone}</S.ContactInfoStyles>
+        </S.ContactInfoWrapper>
+      </td>
       <td>
         {isEditing ? (
           <>
