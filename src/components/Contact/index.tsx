@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-import { remove } from '../../store/reducers/contact'
+import { remove, edit } from '../../store/reducers/contact'
 
 import * as S from '../Contact/styles'
 
@@ -12,31 +12,83 @@ type Props = {
   id: number
 }
 
-const Contact = ({ name, email, phone, id }: Props) => {
+const Contact = ({
+  name: originalName,
+  email: originalEmail,
+  phone: originalPhone,
+  id
+}: Props) => {
   const dispatch = useDispatch()
   const [isEditing, setIsEditing] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+
+  useEffect(() => {
+    if (originalName.length > 0) {
+      setName(originalName)
+    }
+
+    if (originalEmail.length > 0) {
+      setEmail(originalEmail)
+    }
+
+    if (originalPhone !== null && originalPhone !== undefined) {
+      setPhone(originalPhone.toString())
+    }
+  }, [originalName, originalEmail, originalPhone])
+
+  function cancelEditing() {
+    setIsEditing(false)
+    setName(originalName)
+  }
+
   return (
     <>
       <td>
         <S.ContactInfoWrapper>
-          <S.ContactInfoStyles>{name}</S.ContactInfoStyles>
+          <S.ContactInfoStyles
+            disabled={!isEditing}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </S.ContactInfoWrapper>
       </td>
       <td>
         <S.ContactInfoWrapper>
-          <S.ContactInfoStyles>{email}</S.ContactInfoStyles>
+          <S.ContactInfoStyles
+            disabled={!isEditing}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </S.ContactInfoWrapper>
       </td>
       <td>
         <S.ContactInfoWrapper>
-          <S.ContactInfoStyles>{phone}</S.ContactInfoStyles>
+          <S.ContactInfoStyles
+            disabled={!isEditing}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </S.ContactInfoWrapper>
       </td>
       <td>
         {isEditing ? (
           <>
-            <S.ButtonSavelStyles />
-            <S.ButtonCancelStyles onClick={() => setIsEditing(false)} />
+            <S.ButtonSavelStyles
+              onClick={() => {
+                dispatch(
+                  edit({
+                    name,
+                    email,
+                    phone: Number(phone),
+                    id
+                  })
+                )
+                setIsEditing(false)
+              }}
+            />
+            <S.ButtonCancelStyles onClick={cancelEditing} />
           </>
         ) : (
           <>

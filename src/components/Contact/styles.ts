@@ -8,6 +8,7 @@ import cancel from '../../assets/image/cancel.svg'
 export const ContactInfoStyles = styled.textarea`
   background-color: transparent;
   border: none;
+  outline: none;
   resize: none;
   font-size: 18px;
   width: 95%;
