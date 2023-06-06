@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { Omit } from '@reduxjs/toolkit/dist/tsHelpers'
 
 import * as S from './styles'
 import Contact from '../../models/Contact'
@@ -11,13 +12,19 @@ const Form = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
 
-  const phoneValue = parseInt(phone, 10)
-
   const addContact = (e: FormEvent) => {
     e.preventDefault()
-    const contactToAdd = new Contact(name, email, phoneValue, 9)
+
+    const contactToAdd: Omit<Contact, 'id'> = {
+      name,
+      email,
+      phone: parseInt(phone, 10)
+    }
 
     dispatch(add(contactToAdd))
+    setName('')
+    setEmail('')
+    setPhone('')
   }
 
   return (
