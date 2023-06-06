@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 
-export const FormStyles = styled.div`
+export const FormStyles = styled.form`
   display: flex;
   justify-content: space-between;
 `
@@ -14,6 +14,7 @@ export const InputStyles = styled.input`
   padding: 8px;
   border: none;
   border-bottom: 2px solid ${variables.darkGray};
+  outline: none;
 `
 
 export const NameInputStyles = styled(InputStyles)`
@@ -36,4 +37,5 @@ export const ButtonStyles = styled.button`
   border-bottom: 2px solid ${variables.darkGray};
   border-radius: 10px;
   width: 10%;
+  cursor: pointer;
 `
